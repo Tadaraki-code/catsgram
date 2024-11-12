@@ -9,9 +9,14 @@ import java.time.Instant;
 @Setter
 @ToString
 @EqualsAndHashCode(of = { "id" })
-public class Post {
+public class Post implements Comparable<Post>{
     private Long id;
     private long authorId;
     private  String description;
     private Instant postDate;
+
+    @Override
+    public int compareTo(Post post) {
+        return this.id.compareTo(post.getId());
+    }
 }
